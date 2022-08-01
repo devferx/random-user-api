@@ -3,7 +3,7 @@ const cors = require("cors");
 const path = require("path");
 
 const { port, url } = require("./config");
-const avatarsApi = require("./routes/avatars");
+const usersApi = require("./routes/users");
 
 const app = express();
 
@@ -13,12 +13,12 @@ app.use(cors());
 
 app.use("/", express.static(__dirname + "/public"));
 app.use("/static", express.static(__dirname + "./../memojis"));
-app.use("/api/avatars", avatarsApi);
+app.use("/api/users", usersApi);
 
 app.listen(port, (err) => {
   if (err) {
     return console.error(err);
   }
 
-  console.log(`Server is listening on ${url}`);
+  console.log(`Server is listening on next: ${url}`);
 });
